@@ -11,7 +11,7 @@
     MinWidth="1420"
     MinHeight="600"
     x:DataType="vm:MainWindowViewModel"
-    Icon="/Assets/avalonia-logo.ico">
+    Icon="/Assets/favicon.ico">
 
     <Grid Background="{DynamicResource PrimaryColor}" ColumnDefinitions="280,*">
 

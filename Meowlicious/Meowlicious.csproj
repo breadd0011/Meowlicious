@@ -6,7 +6,6 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="favicon.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Assets\Images\food_placeholder.png" />
   </ItemGroup>
 
@@ -58,5 +53,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6" />
     <PackageReference Include="Velopack" Version="0.0.1298" />
     <PackageReference Include="Xaml.Behaviors.Interactions" Version="11.3.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Remove="favicon.ico" />
   </ItemGroup>
 </Project>
