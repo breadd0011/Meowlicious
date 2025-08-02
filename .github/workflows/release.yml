@@ -1,0 +1,46 @@
+
+name: Create Velopack Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  create-release:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Get Version from Tag
+        id: get-version
+        shell: bash
+        run: |
+          version=${GITHUB_REF#refs/tags/v}
+          echo "version=$version" >> $GITHUB_OUTPUT
+          
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish Application
+        shell: pwsh
+        run: |
+          dotnet publish RecipeApp/RecipeApp.csproj `
+          -c Release `
+          -o publish `
+          -r win-x64 `
+        
+            
+      - name: Create Velopack Release
+        run: |
+          dotnet tool install -g vpk
+          vpk download github --repoUrl https://github.com/${{ github.repository }} --token ${{ secrets.GITHUB_TOKEN }}
+          vpk pack -u Meowlicious -v ${{ steps.get-version.outputs.version }} -p publish -e Meowlicious.exe
+          vpk upload github --repoUrl https://github.com/${{ github.repository }} --token ${{ secrets.GITHUB_TOKEN }} --publish
