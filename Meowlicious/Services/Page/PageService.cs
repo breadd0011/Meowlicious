@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using RecipeApp.ViewModels;
+using Meowlicious.ViewModels;
 using System;
 
-namespace RecipeApp.Services.Page
+namespace Meowlicious.Services.Page
 {
     public partial class PageService : ObservableObject, IPageService
     {

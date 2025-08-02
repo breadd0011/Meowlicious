@@ -1,12 +1,12 @@
 <UserControl
-    x:Class="RecipeApp.Views.AddRecipeView"
+    x:Class="Meowlicious.Views.AddRecipeView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
-    xmlns:converters="clr-namespace:RecipeApp.Converters"
+    xmlns:converters="clr-namespace:Meowlicious.Converters"
     xmlns:material="using:Material.Icons.Avalonia"
-    xmlns:views="using:RecipeApp.Views"
-    xmlns:vm="using:RecipeApp.ViewModels"
+    xmlns:views="using:Meowlicious.Views"
+    xmlns:vm="using:Meowlicious.ViewModels"
     x:DataType="vm:AddRecipeViewModel"
     Design.Height="600"
     Design.Width="1130">

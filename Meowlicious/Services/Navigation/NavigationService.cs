@@ -1,9 +1,9 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.ComponentModel;
-using RecipeApp.Services.Navigation;
-using RecipeApp.ViewModels;
+using Meowlicious.Services.Navigation;
+using Meowlicious.ViewModels;
 
-namespace RecipeApp.Services
+namespace Meowlicious.Services
 {
     public partial class NavigationService : ViewModelBase, INavigationService
     {

@@ -1,19 +1,19 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using RecipeApp.Models;
-using RecipeApp.Services;
-using RecipeApp.Services.FilePicker;
-using RecipeApp.Services.Localization;
-using RecipeApp.Services.Navigation;
-using RecipeApp.Services.Page;
-using RecipeApp.Utils;
+using Meowlicious.Models;
+using Meowlicious.Services;
+using Meowlicious.Services.FilePicker;
+using Meowlicious.Services.Localization;
+using Meowlicious.Services.Navigation;
+using Meowlicious.Services.Page;
+using Meowlicious.Utils;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace RecipeApp.ViewModels
+namespace Meowlicious.ViewModels
 {
     public partial class AddRecipeViewModel : ViewModelBase
     {

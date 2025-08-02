@@ -1,12 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using RecipeApp.Models;
-using RecipeApp.Services;
-using RecipeApp.Services.Localization;
-using RecipeApp.Services.Navigation;
+using Meowlicious.Models;
+using Meowlicious.Services;
+using Meowlicious.Services.Localization;
+using Meowlicious.Services.Navigation;
 
-namespace RecipeApp.ViewModels
+namespace Meowlicious.ViewModels
 {
     public partial class FavoritesViewModel : ViewModelBase
     {

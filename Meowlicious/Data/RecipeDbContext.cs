@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RecipeApp.Models;
+using Meowlicious.Models;
 
-namespace RecipeApp.Data
+namespace Meowlicious.Data
 {
     public class RecipeDbContext : DbContext
     {

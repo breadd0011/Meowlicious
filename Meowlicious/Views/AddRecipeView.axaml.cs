@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 
-namespace RecipeApp.Views;
+namespace Meowlicious.Views;
 
 public partial class AddRecipeView : UserControl
 {

@@ -1,15 +1,15 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using RecipeApp.Models;
-using RecipeApp.Services.Localization;
-using RecipeApp.Services.Theme;
-using RecipeApp.Utils;
+using Meowlicious.Models;
+using Meowlicious.Services.Localization;
+using Meowlicious.Services.Theme;
+using Meowlicious.Utils;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
 
-namespace RecipeApp.ViewModels
+namespace Meowlicious.ViewModels
 {
     public partial class SettingsViewModel : ViewModelBase
     {
@@ -35,14 +35,14 @@ namespace RecipeApp.ViewModels
             {
                 Name = "English",
                 Code = "en",
-                FlagPath = "avares://RecipeApp/Assets/Flags/flag_en.png"
+                FlagPath = "avares://Meowlicious/Assets/Flags/flag_en.png"
             },
 
             new Language
             {
                 Name = "Hungarian",
                 Code = "hu",
-                FlagPath = $"avares://RecipeApp/Assets/Flags/flag_hu.png"
+                FlagPath = $"avares://Meowlicious/Assets/Flags/flag_hu.png"
             }
         };
 

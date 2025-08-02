@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RecipeApp.Services.Page
+namespace Meowlicious.Services.Page
 {
     public interface IPageService
     {

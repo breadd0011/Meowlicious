@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace RecipeApp.Models
+namespace Meowlicious.Models
 {
     public partial class Recipe : ObservableObject
     {

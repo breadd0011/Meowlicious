@@ -1,11 +1,11 @@
 <UserControl
-    x:Class="RecipeApp.Views.SettingsView"
+    x:Class="Meowlicious.Views.SettingsView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="using:RecipeApp.ViewModels"
+    xmlns:vm="using:Meowlicious.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
     x:DataType="vm:SettingsViewModel"

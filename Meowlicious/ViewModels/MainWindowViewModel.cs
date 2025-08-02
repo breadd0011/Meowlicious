@@ -1,15 +1,15 @@
 ﻿using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using RecipeApp.Services.Localization;
-using RecipeApp.Services.Navigation;
-using RecipeApp.Services.Page;
-using RecipeApp.Services.Search;
-using RecipeApp.Utils;
+using Meowlicious.Services.Localization;
+using Meowlicious.Services.Navigation;
+using Meowlicious.Services.Page;
+using Meowlicious.Services.Search;
+using Meowlicious.Utils;
 using System;
 using System.Threading.Tasks;
 
-namespace RecipeApp.ViewModels
+namespace Meowlicious.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {

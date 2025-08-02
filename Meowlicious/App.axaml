@@ -1,8 +1,8 @@
 <Application
-    x:Class="RecipeApp.App"
+    x:Class="Meowlicious.App"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:RecipeApp"
+    xmlns:local="using:Meowlicious"
     xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
     RequestedThemeVariant="Dark">
     <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
@@ -19,7 +19,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
-        <FontFamily x:Key="InterFont">avares://RecipeApp/Assets/Fonts#Inter 18pt</FontFamily>
+        <FontFamily x:Key="InterFont">avares://Meowlicious/Assets/Fonts#Inter 18pt</FontFamily>
 
     </Application.Resources>
 

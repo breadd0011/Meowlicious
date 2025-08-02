@@ -3,7 +3,7 @@ using System.Globalization;
 using Avalonia.Data.Converters;
 using Avalonia.Media.Imaging;
 
-namespace RecipeApp.Converters
+namespace Meowlicious.Converters
 {
     public class ByteArrayToBitmapConverter : IValueConverter
     {

@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using RecipeApp.ViewModels;
+using Meowlicious.ViewModels;
 
-namespace RecipeApp
+namespace Meowlicious
 {
     public class ViewLocator : IDataTemplate
     {

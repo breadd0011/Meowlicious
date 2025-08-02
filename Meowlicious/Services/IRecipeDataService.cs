@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using RecipeApp.Models;
+using Meowlicious.Models;
 
-namespace RecipeApp.Services
+namespace Meowlicious.Services
 {
     public interface IRecipeDataService
     {

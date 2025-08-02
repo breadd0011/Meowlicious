@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RecipeApp.Models
+namespace Meowlicious.Models
 {
     public class Ingredient
     {

@@ -2,7 +2,7 @@
 using Avalonia.Markup.Xaml.Styling;
 using System;
 
-namespace RecipeApp.Services.Theme
+namespace Meowlicious.Services.Theme
 {
     public class ThemeService : IThemeService
     {
@@ -14,9 +14,9 @@ namespace RecipeApp.Services.Theme
 
             Application.Current.Resources.MergedDictionaries.Clear();
 
-            var themeSource = new ResourceInclude(new Uri("avares://RecipeApp/Styles/Themes/"))
+            var themeSource = new ResourceInclude(new Uri("avares://Meowlicious/Styles/Themes/"))
             {
-                Source = new Uri($"avares://RecipeApp/Styles/Themes/{(isDark ? "Dark" : "Light")}Theme.axaml")
+                Source = new Uri($"avares://Meowlicious/Styles/Themes/{(isDark ? "Dark" : "Light")}Theme.axaml")
             };
 
             Application.Current.Resources.MergedDictionaries.Add(themeSource);

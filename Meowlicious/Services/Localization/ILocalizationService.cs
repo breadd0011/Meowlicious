@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
 
-namespace RecipeApp.Services.Localization
+namespace Meowlicious.Services.Localization
 {
     public interface ILocalizationService : INotifyPropertyChanged
     {

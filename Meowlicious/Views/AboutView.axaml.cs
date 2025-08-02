@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace RecipeApp.Views;
+namespace Meowlicious.Views;
 
 public partial class AboutView : UserControl
 {

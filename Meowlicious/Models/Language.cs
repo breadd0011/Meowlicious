@@ -1,4 +1,4 @@
-﻿namespace RecipeApp.Models
+﻿namespace Meowlicious.Models
 {
     public class Language
     {

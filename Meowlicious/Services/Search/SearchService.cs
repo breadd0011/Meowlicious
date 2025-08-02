@@ -1,7 +1,7 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace RecipeApp.Services.Search
+namespace Meowlicious.Services.Search
 {
     public partial class SearchService : ObservableObject, ISearchService
     {

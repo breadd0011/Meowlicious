@@ -2,7 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Platform.Storage;
 
-namespace RecipeApp.Services.FilePicker
+namespace Meowlicious.Services.FilePicker
 {
     public interface IFileService
     {

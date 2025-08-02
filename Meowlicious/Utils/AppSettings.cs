@@ -1,4 +1,4 @@
-﻿namespace RecipeApp.Utils
+﻿namespace Meowlicious.Utils
 {
     public class AppSettings
     {

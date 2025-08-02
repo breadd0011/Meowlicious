@@ -1,4 +1,4 @@
-﻿namespace RecipeApp.Services.Theme
+﻿namespace Meowlicious.Services.Theme
 {
     public interface IThemeService
     {

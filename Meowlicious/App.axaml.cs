@@ -4,17 +4,17 @@ using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RecipeApp.Data;
-using RecipeApp.Services;
-using RecipeApp.Services.FilePicker;
-using RecipeApp.Services.Localization;
-using RecipeApp.Services.Navigation;
-using RecipeApp.Services.Page;
-using RecipeApp.Services.Search;
-using RecipeApp.Services.Theme;
-using RecipeApp.Utils;
-using RecipeApp.ViewModels;
-using RecipeApp.Views;
+using Meowlicious.Data;
+using Meowlicious.Services;
+using Meowlicious.Services.FilePicker;
+using Meowlicious.Services.Localization;
+using Meowlicious.Services.Navigation;
+using Meowlicious.Services.Page;
+using Meowlicious.Services.Search;
+using Meowlicious.Services.Theme;
+using Meowlicious.Utils;
+using Meowlicious.ViewModels;
+using Meowlicious.Views;
 using System;
 using System.Globalization;
 using System.IO;
@@ -22,7 +22,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading;
 
-namespace RecipeApp
+namespace Meowlicious
 {
     public partial class App : Application
     {

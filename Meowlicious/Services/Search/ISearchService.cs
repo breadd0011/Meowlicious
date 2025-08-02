@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RecipeApp.Services.Search
+namespace Meowlicious.Services.Search
 {
     public interface ISearchService
     {

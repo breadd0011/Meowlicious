@@ -2,7 +2,7 @@
 using Avalonia;
 using Velopack;
 
-namespace RecipeApp
+namespace Meowlicious
 {
     internal sealed class Program
     {

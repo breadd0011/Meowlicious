@@ -1,6 +1,6 @@
-﻿using RecipeApp.ViewModels;
+﻿using Meowlicious.ViewModels;
 
-namespace RecipeApp.Services.Navigation
+namespace Meowlicious.Services.Navigation
 {
     public interface INavigationService
     {

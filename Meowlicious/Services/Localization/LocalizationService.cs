@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Resources;
 
-namespace RecipeApp.Services.Localization
+namespace Meowlicious.Services.Localization
 {
     public class LocalizationService : ILocalizationService
     {
@@ -13,7 +13,7 @@ namespace RecipeApp.Services.Localization
 
         public LocalizationService()
         {
-            _resourceManager = new ResourceManager("RecipeApp.Resources.Strings", typeof(LocalizationService).Assembly);
+            _resourceManager = new ResourceManager("Meowlicious.Resources.Strings", typeof(LocalizationService).Assembly);
             _currentCulture = CultureInfo.CurrentUICulture;
         }
 

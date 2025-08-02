@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using RecipeApp.Data;
-using RecipeApp.Models;
+using Meowlicious.Data;
+using Meowlicious.Models;
 
-namespace RecipeApp.Services
+namespace Meowlicious.Services
 {
     public class RecipeDataService : IRecipeDataService
     {

@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace RecipeApp.ViewModels
+namespace Meowlicious.ViewModels
 {
     public partial class ViewModelBase : ObservableObject
     {

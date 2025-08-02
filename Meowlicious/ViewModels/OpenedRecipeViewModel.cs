@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using RecipeApp.Models;
-using RecipeApp.Services.Localization;
+using Meowlicious.Models;
+using Meowlicious.Services.Localization;
 
-namespace RecipeApp.ViewModels
+namespace Meowlicious.ViewModels
 {
     public partial class OpenedRecipeViewModel : ViewModelBase
     {

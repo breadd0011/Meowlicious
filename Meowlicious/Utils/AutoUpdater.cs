@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Velopack;
 
-namespace RecipeApp.Utils
+namespace Meowlicious.Utils
 {
     public class AutoUpdater
     {

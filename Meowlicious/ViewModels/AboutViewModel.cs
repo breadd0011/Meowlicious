@@ -1,6 +1,6 @@
-﻿using RecipeApp.Services.Localization;
+﻿using Meowlicious.Services.Localization;
 
-namespace RecipeApp.ViewModels
+namespace Meowlicious.ViewModels
 {
     public class AboutViewModel : ViewModelBase
     {
