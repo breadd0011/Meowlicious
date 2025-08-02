@@ -1,0 +1,114 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:material="using:Material.Icons.Avalonia">
+
+    <Design.PreviewWith>
+        <Border Padding="100" Background="{DynamicResource PrimaryColor}">
+            <Button
+                Width="160"
+                Height="60"
+                Classes="Sidebar"
+                Content="Valami"
+                IsEnabled="True" />
+        </Border>
+    </Design.PreviewWith>
+
+    <!--  Add Styles Here  -->
+    <Style Selector="Button.Views">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+    </Style>
+
+    <Style Selector="Button.Views:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryColor}" />
+    </Style>
+
+    <Style Selector="Button.Sidebar">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+    </Style>
+
+    <Style Selector="Button.Sidebar:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryColor}" />
+    </Style>
+
+    <Style Selector="Button.Sidebar:disabled /template/ ContentPresenter">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0.2" Color="{DynamicResource TertiaryColor}" />
+            </Setter.Value>
+        </Setter>
+		<Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="CornerRadius" Value="15" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryColor}" />
+    </Style>
+
+
+    <Style Selector="Button.Add">
+        <Setter Property="Background" Value="{DynamicResource TertiaryColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="Button.Add:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource TertiaryColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Opacity" Value="0.9" />
+    </Style>
+
+    <Style Selector="Button.favorite">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="ContentTemplate">
+            <DataTemplate>
+                <material:MaterialIcon
+                    Width="30"
+                    Height="30"
+                    Foreground="{DynamicResource FavoritesColor}"
+                    Kind="FavoriteOutline" />
+            </DataTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button.favorite-toggle">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="ContentTemplate">
+            <DataTemplate>
+                <material:MaterialIcon
+                    Width="30"
+                    Height="30"
+                    Foreground="{DynamicResource FavoritesColor}"
+                    Kind="Favorite">
+
+                    <material:MaterialIcon.Effect>
+                        <DropShadowEffect
+                            BlurRadius="5"
+                            OffsetX="0"
+                            OffsetY="0"
+                            Transitions=""
+                            Color="{DynamicResource FavoritesColor}" />
+                    </material:MaterialIcon.Effect>
+
+                </material:MaterialIcon>
+            </DataTemplate>
+        </Setter>
+    </Style>
+
+</Styles>

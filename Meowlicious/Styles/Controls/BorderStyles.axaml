@@ -1,0 +1,49 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!--  Add Controls for Previewer Here  -->
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="Border.ListBorder">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0.05" Color="Black" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style Selector="Border.ListBorder:pointerover">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0.1" Color="Black" />
+            </Setter.Value>
+        </Setter>
+        <Style.Animations>
+            <Animation Duration="0:0:0.3">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Opacity="0.05" Color="Black" />
+                        </Setter.Value>
+                    </Setter>
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Opacity="0.1" Color="Black" />
+                        </Setter.Value>
+                    </Setter>
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <Style Selector="Border.PreviewListBorder">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0.05" Color="Black" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+</Styles>

@@ -1,0 +1,99 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="100" Background="{DynamicResource BackgroundColor}">
+
+            <!--<ComboBox
+                Width="70"
+                Height="40"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Center">
+                <ComboBoxItem Content="db" />
+                <ComboBoxItem Content="kg" />
+                <ComboBoxItem Content="l" />
+            </ComboBox>-->
+
+            <Button Content="Asd" />
+
+        </Border>
+    </Design.PreviewWith>
+
+    <!--  Add Styles Here  -->
+
+    <Style Selector="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource InterFont}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+    </Style>
+
+    <Style Selector="TextBox">
+        <Setter Property="FontFamily" Value="{StaticResource InterFont}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundColorShadow}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="5" />
+    </Style>
+
+    <Style Selector="TextBox:pointerover:not(:focus) /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColorShadow}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextColor}" />
+    </Style>
+
+    <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColorShadow}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TertiaryColor}" />
+        <Setter Property="BorderThickness" Value="2" />
+
+    </Style>
+
+    <Style Selector="ComboBox">
+        <Setter Property="FontFamily" Value="{StaticResource InterFont}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundColorShadow}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="5" />
+    </Style>
+
+    <Style Selector="ComboBox:pointerover:not(:focus) /template/ Border#Background">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColorShadow}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextColor}" />
+    </Style>
+
+    <Style Selector="ComboBox:focus /template/ Border#Background">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColorShadow}" />
+    </Style>
+
+    <Style Selector="ComboBox:dropdownopen /template/ Border#PopupBorder">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+    </Style>
+
+    <Style Selector="ComboBoxItem:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColorShadow}" />
+    </Style>
+
+    <Style Selector="ComboBoxItem:selected /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColorShadow}" />
+    </Style>
+
+    <Style Selector="Button">
+        <Setter Property="FontFamily" Value="{StaticResource InterFont}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundColorShadow}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="5" />
+    </Style>
+
+	<Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="BorderBrush" Value="{Binding $parent[Button].BorderBrush}" />
+    </Style>
+
+	<Style Selector="Button:focus /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="BorderBrush" Value="{Binding $parent[Button].BorderBrush}" />
+	</Style>
+
+	<Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="BorderBrush" Value="{Binding $parent[Button].BorderBrush}" />
+		<Setter Property="Background" Value="{Binding $parent[Button].BorderBrush}" />
+	</Style>
+
+</Styles>

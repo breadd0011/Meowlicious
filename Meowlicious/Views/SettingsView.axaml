@@ -1,0 +1,96 @@
+<UserControl
+    x:Class="RecipeApp.Views.SettingsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:RecipeApp.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:SettingsViewModel"
+    mc:Ignorable="d">
+
+    <Grid Background="{DynamicResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <Border Grid.Row="0" BoxShadow="0 0 5 black">
+            <Grid Margin="10">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Text="{Binding L[SettingsHeader]}" />
+            </Grid>
+        </Border>
+
+        <StackPanel
+            Grid.Row="1"
+            Margin="10"
+            Orientation="Vertical">
+            <!--  Language Settings  -->
+            <Grid ColumnDefinitions="*,*">
+                <TextBlock
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Text="{Binding L[LanguageOption]}" />
+                <ComboBox
+                    Grid.Column="1"
+                    Margin="10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Right"
+                    ItemsSource="{Binding Languages}"
+                    SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}">
+
+                    <Interaction.Behaviors>
+                        <EventTriggerBehavior EventName="SelectionChanged">
+                            <InvokeCommandAction Command="{Binding ChangeCultureCommand}" />
+                        </EventTriggerBehavior>
+                    </Interaction.Behaviors>
+
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Image
+                                    Width="30"
+                                    Height="30"
+                                    asyncImageLoader:ImageLoader.Source="{Binding FlagPath}" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+
+            <!--  Theme Settings  -->
+            <Grid ColumnDefinitions="*,*">
+                <TextBlock
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Text="{Binding L[ThemeOption]}" />
+                <Button
+                    Grid.Column="1"
+                    Command="{Binding ChangeThemeCommand}"
+                    Content="SwitchTheme" />
+            </Grid>
+
+        </StackPanel>
+
+
+
+
+
+    </Grid>
+</UserControl>

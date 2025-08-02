@@ -1,0 +1,331 @@
+<UserControl
+    x:Class="RecipeApp.Views.RecipeExplorerView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:converters="clr-namespace:RecipeApp.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+    xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+    xmlns:material="using:Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:RecipeApp.Views"
+    xmlns:vm="using:RecipeApp.ViewModels"
+    x:DataType="vm:RecipeExplorerViewModel"
+    Design.Height="600"
+    Design.Width="800">
+
+    <UserControl.Styles>
+        <Style Selector="Grid.IsPopupOpen">
+            <Setter Property="Effect" Value="blur(10)" />
+            <Setter Property="IsEnabled" Value="False" />
+        </Style>
+    </UserControl.Styles>
+
+    <UserControl.Resources>
+        <converters:ByteArrayToBitmapConverter x:Key="ByteArrayToBitmapConverter" />
+    </UserControl.Resources>
+
+    <Grid Background="Transparent" Classes.IsPopupOpen="{Binding IsPopupOpen}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <Border Grid.Row="0" BoxShadow="0 0 5 black">
+            <Grid Margin="10">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Text="{Binding L[AllRecipesHeader]}" />
+            </Grid>
+        </Border>
+
+        <!--  DeletePopup  -->
+        <Popup
+            Grid.Row="1"
+            ClipToBounds="True"
+            IsOpen="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).IsPopupOpen}"
+            Placement="Center"
+            WindowManagerAddShadowHint="True">
+            <Border
+                Width="400"
+                Height="150"
+                Background="{DynamicResource PrimaryColor}"
+                CornerRadius="10">
+
+                <Grid RowDefinitions="*,60">
+
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Text="{Binding L[ConfirmRemoveMessage]}" />
+
+                    <StackPanel
+                        Grid.Row="1"
+                        Margin="10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="5">
+
+                        <Button
+                            Width="60"
+                            Height="40"
+                            BorderBrush="{DynamicResource OkColor}"
+                            Command="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).RemoveRecipeCommand}"
+                            Content="{Binding L[YesButton]}" />
+                        <Button
+                            Width="60"
+                            Height="40"
+                            BorderBrush="{DynamicResource ErrorColor}"
+                            Command="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).CancelRemoveCommand}"
+                            Content="{Binding L[NoButton]}" />
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+        </Popup>
+
+
+        <!--  Empty RecipeList Message  -->
+        <TextBlock
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="38"
+            Foreground="{DynamicResource PrimaryColor}"
+            IsVisible="{Binding IsNoRecipesTextVisible}"
+            Text="{Binding L[NoRecipesMessage]}" />
+
+        <!--  No Search Result Message  -->
+        <TextBlock
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="38"
+            Foreground="{DynamicResource PrimaryColor}"
+            IsVisible="{Binding IsNoSearchTextVisible}"
+            Text="{Binding L[NoSearchMessage]}" />
+
+        <!--  Recipe List  -->
+        <ScrollViewer
+            Grid.Row="1"
+            Margin="10"
+            HorizontalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding FilteredRecipes}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="10">
+                            <Border
+                                Background="{DynamicResource BackgroundColorShadow}"
+                                ClipToBounds="True"
+                                CornerRadius="10">
+
+                                <Border.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="5"
+                                        OffsetX="1"
+                                        OffsetY="1"
+                                        Color="Black" />
+                                </Border.Effect>
+
+                                <Interaction.Behaviors>
+                                    <EventTriggerBehavior EventName="Tapped">
+                                        <InvokeCommandAction Command="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).OpenRecipeCommand}" CommandParameter="{Binding}" />
+                                    </EventTriggerBehavior>
+                                </Interaction.Behaviors>
+
+                                <Grid ColumnDefinitions="280">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="200" />
+                                        <RowDefinition Height="160" />
+                                    </Grid.RowDefinitions>
+
+                                    <!--  Recipe Image  -->
+                                    <Border Background="{DynamicResource PrimaryColor}">
+                                        <Image
+                                            Grid.Row="0"
+                                            ClipToBounds="True"
+                                            Source="{Binding ImageBytes, Converter={StaticResource ByteArrayToBitmapConverter}}"
+                                            Stretch="UniformToFill" />
+                                    </Border>
+
+
+                                    <!--  Recipe Info  -->
+                                    <Grid Grid.Row="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="120" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="4*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            Grid.ColumnSpan="3"
+                                            Margin="10">
+                                            <TextBlock
+                                                FontSize="18"
+                                                FontWeight="Bold"
+                                                MaxLines="2"
+                                                Text="{Binding Name}"
+                                                TextTrimming="WordEllipsis"
+                                                TextWrapping="WrapWithOverflow" />
+
+                                            <TextBlock
+                                                FontSize="16"
+                                                MaxLines="2"
+                                                Text="{Binding Description}"
+                                                TextTrimming="WordEllipsis"
+                                                TextWrapping="Wrap">
+
+                                                <TextBlock.Foreground>
+                                                    <SolidColorBrush Opacity="0.8" Color="White" />
+                                                </TextBlock.Foreground>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <material:MaterialIcon
+                                            Grid.Row="1"
+                                            Width="30"
+                                            Height="30"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Kind="ClockOutline" />
+
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            MaxLines="1"
+                                            Text="{Binding RequiredTime}"
+                                            TextTrimming="WordEllipsis"
+                                            TextWrapping="NoWrap">
+
+                                            <TextBlock.Foreground>
+                                                <SolidColorBrush Opacity="0.7" Color="White" />
+                                            </TextBlock.Foreground>
+                                        </TextBlock>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+
+                            <!--  Card Buttons  -->
+                            <Border ClipToBounds="True" CornerRadius="10">
+                                <Grid ColumnDefinitions="280">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="200" />
+                                        <RowDefinition Height="160" />
+                                    </Grid.RowDefinitions>
+
+                                    <Button
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Background="Transparent">
+
+                                        <Button.Flyout>
+                                            <MenuFlyout>
+                                                <MenuItem Command="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).EditRecipeCommand}" CommandParameter="{Binding}">
+                                                    <MenuItem.Header>
+                                                        <StackPanel Orientation="Horizontal" Spacing="5">
+                                                            <material:MaterialIcon
+                                                                Width="30"
+                                                                Height="30"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Foreground="{DynamicResource OkColor}"
+                                                                Kind="EditOutline" />
+
+                                                            <TextBlock
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Text="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).L[EditButton]}" />
+                                                        </StackPanel>
+                                                    </MenuItem.Header>
+                                                </MenuItem>
+                                                <MenuItem Command="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).RemoveRecipeCommand}" CommandParameter="{Binding}">
+                                                    <MenuItem.Header>
+                                                        <StackPanel Orientation="Horizontal" Spacing="5">
+                                                            <material:MaterialIcon
+                                                                Width="30"
+                                                                Height="30"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Foreground="{DynamicResource ErrorColor}"
+                                                                Kind="TrashCanOutline" />
+
+                                                            <TextBlock
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Text="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).L[RemoveButton]}" />
+                                                        </StackPanel>
+                                                    </MenuItem.Header>
+                                                </MenuItem>
+                                            </MenuFlyout>
+                                        </Button.Flyout>
+
+                                        <material:MaterialIcon
+                                            Width="30"
+                                            Height="30"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Kind="DotsVertical">
+
+                                            <material:MaterialIcon.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="5"
+                                                    OffsetX="0"
+                                                    OffsetY="0"
+                                                    Color="Black" />
+                                            </material:MaterialIcon.Effect>
+                                        </material:MaterialIcon>
+
+                                    </Button>
+
+                                    <Grid Grid.Row="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="120" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="4*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Button
+                                            Grid.Row="1"
+                                            Grid.Column="2"
+                                            Classes="favorite"
+                                            Classes.favorite-toggle="{Binding IsFavorite, Mode=TwoWay}"
+                                            Command="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).AddToFavoritesCommand}"
+                                            CommandParameter="{Binding}" />
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
+

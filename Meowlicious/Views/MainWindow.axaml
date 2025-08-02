@@ -1,0 +1,199 @@
+<Window
+    x:Class="RecipeApp.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+    xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+    xmlns:material="using:Material.Icons.Avalonia"
+    xmlns:vm="using:RecipeApp.ViewModels"
+    Title="RecipeApp"
+    MinWidth="1420"
+    MinHeight="600"
+    x:DataType="vm:MainWindowViewModel"
+    Icon="/Assets/avalonia-logo.ico">
+
+    <Grid Background="{DynamicResource PrimaryColor}" ColumnDefinitions="280,*">
+
+        <!--  SideBar  -->
+        <Grid RowDefinitions="Auto,Auto,*">
+            <Grid.Background>
+                <ImageBrush
+                    Opacity="0.03"
+                    Source="/Assets/Images/seamlessbg.png"
+                    Stretch="UniformToFill" />
+            </Grid.Background>
+
+
+            <!--  Top Section  -->
+            <StackPanel Grid.Row="0" Margin="10,0,10,0">
+                <Image
+                    Height="180"
+                    HorizontalAlignment="Center"
+                    RenderOptions.BitmapInterpolationMode="HighQuality"
+                    Source="/Assets/Images/header.png"
+                    Stretch="UniformToFill" />
+
+                <Separator
+                    Height="1"
+                    Margin="10,0,10,10"
+                    Opacity="0.3" />
+
+                <TextBox
+                    Classes="SearchBox"
+                    MaxLength="32"
+                    Text="{Binding SearchService.SearchText, Mode=TwoWay}"
+                    Watermark="{Binding L[SearchWatermark]}">
+                    <TextBox.InnerLeftContent>
+                        <material:MaterialIcon
+                            Width="25"
+                            Height="25"
+                            Margin="10,0,0,0"
+                            Kind="Search" />
+                    </TextBox.InnerLeftContent>
+                </TextBox>
+
+
+                <Separator
+                    Height="1"
+                    Margin="10"
+                    Opacity="0.3" />
+
+                <!--  Add Button  -->
+                <Button
+                    Classes="Sidebar"
+                    Command="{Binding AddRecipeCommand}"
+                    CornerRadius="5"
+                    IsEnabled="{Binding !PageService.IsAddRecipeActive}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <material:MaterialIcon
+                            Width="25"
+                            Height="25"
+                            VerticalAlignment="Center"
+                            Kind="Add" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="{Binding L[AddRecipeButton]}" />
+                    </StackPanel>
+                </Button>
+
+                <Separator
+                    Height="1"
+                    Margin="10"
+                    Opacity="0.3" />
+
+            </StackPanel>
+
+            <!--  Middle Section  -->
+            <StackPanel Grid.Row="1" Margin="10,0,10,0">
+                <Button
+                    Classes="Sidebar"
+                    Command="{Binding GoToExplorerCommand}"
+                    IsEnabled="{Binding !PageService.IsExplorerActive}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <material:MaterialIcon
+                            Width="25"
+                            Height="25"
+                            VerticalAlignment="Center"
+                            Kind="HomeOutline" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="{Binding L[HomeButton]}" />
+                    </StackPanel>
+                </Button>
+
+                <Button
+                    Classes="Sidebar"
+                    Command="{Binding GoToFavoritesCommand}"
+                    IsEnabled="{Binding !PageService.IsFavoritesActive}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <material:MaterialIcon
+                            Width="25"
+                            Height="25"
+                            VerticalAlignment="Center"
+                            Kind="FavoriteOutline" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="{Binding L[FavoritesButton]}" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <!--  Bottom Section  -->
+            <StackPanel
+                Grid.Row="2"
+                Margin="10"
+                VerticalAlignment="Bottom">
+
+                <Separator
+                    Height="1"
+                    Margin="10"
+                    Opacity="0.3" />
+
+
+                <Button
+                    Classes="Sidebar"
+                    Command="{Binding UpdateAppCommand}"
+                    IsVisible="{Binding IsUpdateAvailable}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <material:MaterialIcon
+                            Width="25"
+                            Height="25"
+                            VerticalAlignment="Center"
+                            Kind="Update" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="{Binding L[UpdateButton]}" />
+                    </StackPanel>
+                </Button>
+
+
+                <Button
+                    Classes="Sidebar"
+                    Command="{Binding GoToSettingsCommand}"
+                    IsEnabled="{Binding !PageService.IsSettingsActive}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <material:MaterialIcon
+                            Width="25"
+                            Height="25"
+                            VerticalAlignment="Center"
+                            Kind="SettingsOutline" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="{Binding L[SettingsButton]}" />
+                    </StackPanel>
+                </Button>
+
+                <Button
+                    Classes="Sidebar"
+                    Command="{Binding GoToAboutCommand}"
+                    IsEnabled="{Binding !PageService.IsAboutActive}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <material:MaterialIcon
+                            Width="25"
+                            Height="25"
+                            VerticalAlignment="Center"
+                            Kind="AboutOutline" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="{Binding L[AboutButton]}" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+
+
+        <!--  Content  -->
+        <TransitioningContentControl
+            Grid.Column="1"
+            Background="{DynamicResource BackgroundColor}"
+            Content="{Binding NavService.CurrentView}" />
+    </Grid>
+</Window>
