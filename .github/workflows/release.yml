@@ -32,7 +32,7 @@ jobs:
       - name: Publish Application
         shell: pwsh
         run: |
-          dotnet publish RecipeApp/RecipeApp.csproj `
+          dotnet publish Meowlicious/Meowlicious.csproj `
           -c Release `
           -o publish `
           -r win-x64 `
