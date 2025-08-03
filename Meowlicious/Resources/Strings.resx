@@ -117,10 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutButton" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="AboutHeader" xml:space="preserve">
+  <data name="But" xml:space="preserve">
     <value>About</value>
   </data>
   <data name="AddIngredientButton" xml:space="preserve">
@@ -192,6 +189,9 @@
   <data name="RemoveButton" xml:space="preserve">
     <value>Remove</value>
   </data>
+  <data name="RemoveFavoriteButton" xml:space="preserve">
+    <value>Remove from favorites</value>
+  </data>
   <data name="RequiredTimeWatermark" xml:space="preserve">
     <value>Required Time</value>
   </data>
@@ -210,6 +210,9 @@
   <data name="SettingsHeader" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="ThemeOption" xml:space="preserve">
+    <value>Theme</value>
+  </data>
   <data name="UnitWatermark" xml:space="preserve">
     <value>Unit</value>
   </data>
@@ -218,5 +221,15 @@
   </data>
   <data name="YesButton" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="NoFavoritesSearchMessage" xml:space="preserve">
+    <value>You don't have any favorite with this name :(</value>
+  </data>
+  <data name="AboutHeader" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutButton" xml:space="preserve">
+    <value>About</value>
+    <comment>Névjegy</comment>
   </data>
 </root>

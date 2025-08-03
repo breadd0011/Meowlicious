@@ -18,7 +18,7 @@ namespace Meowlicious.ViewModels
     public partial class AddRecipeViewModel : ViewModelBase
     {
         [ObservableProperty] private INavigationService _navService;
-        [ObservableProperty] private IPageService _pageService;
+        [ObservableProperty] private ISidebarService _SidebarService;
         [ObservableProperty] private Recipe _recipeDraft;
         [ObservableProperty] private Ingredient _ingredientDraft;
         [ObservableProperty] private bool _isImgTipVisible;
@@ -31,14 +31,14 @@ namespace Meowlicious.ViewModels
 
         public AddRecipeViewModel(
             INavigationService navService,
-            IPageService pageService,
+            ISidebarService SidebarService,
             IRecipeDataService recipeDataService,
             ILocalizationService localizationService,
             IFileService fileService,
             Recipe? recipe = null)
         {
             _navService = navService;
-            _pageService = pageService;
+            _SidebarService = SidebarService;
             _recipeDataService = recipeDataService;
             L = localizationService;
             _fileService = fileService;
@@ -141,14 +141,14 @@ namespace Meowlicious.ViewModels
             }
 
             NavService.NavigateTo<RecipeExplorerViewModel>();
-            PageService.CurrentPageType = typeof(RecipeExplorerViewModel);
+            SidebarService.CurrentPageType = typeof(RecipeExplorerViewModel);
         }
 
         [RelayCommand]
         private void CancelRecipe()
         {
             NavService.NavigateTo<RecipeExplorerViewModel>();
-            PageService.CurrentPageType = typeof(RecipeExplorerViewModel);
+            SidebarService.CurrentPageType = typeof(RecipeExplorerViewModel);
         }
     }
 }

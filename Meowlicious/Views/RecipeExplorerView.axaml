@@ -26,7 +26,7 @@
         <converters:ByteArrayToBitmapConverter x:Key="ByteArrayToBitmapConverter" />
     </UserControl.Resources>
 
-    <Grid Background="Transparent" Classes.IsPopupOpen="{Binding IsPopupOpen}">
+    <Grid Background="{DynamicResource BackgroundColor}" Classes.IsPopupOpen="{Binding IsPopupOpen}">
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
             <RowDefinition Height="*" />
@@ -316,7 +316,7 @@
                                             Grid.Column="2"
                                             Classes="favorite"
                                             Classes.favorite-toggle="{Binding IsFavorite, Mode=TwoWay}"
-                                            Command="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).AddToFavoritesCommand}"
+                                            Command="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).SwitchFavoriteCommand}"
                                             CommandParameter="{Binding}" />
                                     </Grid>
                                 </Grid>

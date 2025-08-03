@@ -5,7 +5,6 @@
     xmlns:local="using:Meowlicious"
     xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
     RequestedThemeVariant="Dark">
-    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
     <Application.DataTemplates>
         <local:ViewLocator />
@@ -31,8 +30,3 @@
 
 
 </Application>
-
-
-<!--<StyleInclude Source="Styles/AppDefaultStyles.axaml" />
-        <StyleInclude Source="Styles/ButtonStyles.axaml" />
-        <StyleInclude Source="Styles/BorderStyles.axaml" />-->

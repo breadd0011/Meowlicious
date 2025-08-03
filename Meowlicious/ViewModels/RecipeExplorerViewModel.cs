@@ -18,7 +18,7 @@ namespace Meowlicious.ViewModels
     public partial class RecipeExplorerViewModel : ViewModelBase
     {
         [ObservableProperty] private INavigationService _navService;
-        [ObservableProperty] private IPageService _pageService;
+        [ObservableProperty] private ISidebarService _SidebarService;
 
         [ObservableProperty] private ObservableCollection<Recipe> _recipes;
         [ObservableProperty] private ObservableCollection<Recipe> _filteredRecipes;
@@ -38,7 +38,7 @@ namespace Meowlicious.ViewModels
 
         public RecipeExplorerViewModel(
             INavigationService navService,
-            IPageService pageService,
+            ISidebarService SidebarService,
             FavoritesViewModel favoritesViewModel,
             IRecipeDataService recipeDataService,
             ILocalizationService localizationService,
@@ -46,7 +46,7 @@ namespace Meowlicious.ViewModels
             IFileService fileService)
         {
             _navService = navService;
-            _pageService = pageService;
+            _SidebarService = SidebarService;
             _favoritesViewModel = favoritesViewModel;
             _recipeDataService = recipeDataService;
             _searchService = searchService;
@@ -107,12 +107,12 @@ namespace Meowlicious.ViewModels
             if (recipe != null)
             {
                 NavService.NavigateTo(new OpenedRecipeViewModel(recipe, L));
-                PageService.CurrentPageType = typeof(OpenedRecipeViewModel);
+                SidebarService.CurrentPageType = typeof(OpenedRecipeViewModel);
             }
         }
 
         [RelayCommand]
-        private void AddToFavorites(Recipe recipe)
+        private void SwitchFavorite(Recipe recipe)
         {
             if (recipe != null)
             {
@@ -168,8 +168,8 @@ namespace Meowlicious.ViewModels
         {
             if (recipe != null)
             {
-                NavService.NavigateTo(new AddRecipeViewModel(NavService, _pageService, _recipeDataService, L, _fileService, recipe));
-                PageService.CurrentPageType = typeof(OpenedRecipeViewModel);
+                NavService.NavigateTo(new AddRecipeViewModel(NavService, _SidebarService, _recipeDataService, L, _fileService, recipe));
+                SidebarService.CurrentPageType = typeof(OpenedRecipeViewModel);
             }
         }
     }

@@ -64,13 +64,13 @@
                     Classes="Sidebar"
                     Command="{Binding AddRecipeCommand}"
                     CornerRadius="5"
-                    IsEnabled="{Binding !PageService.IsAddRecipeActive}">
+                    IsEnabled="{Binding !SidebarService.IsAddRecipeActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="Add" />
+                            Kind="{Binding SidebarService.AddIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -90,13 +90,13 @@
                 <Button
                     Classes="Sidebar"
                     Command="{Binding GoToExplorerCommand}"
-                    IsEnabled="{Binding !PageService.IsExplorerActive}">
+                    IsEnabled="{Binding !SidebarService.IsExplorerActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="HomeOutline" />
+                            Kind="{Binding SidebarService.ExplorerIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -107,13 +107,13 @@
                 <Button
                     Classes="Sidebar"
                     Command="{Binding GoToFavoritesCommand}"
-                    IsEnabled="{Binding !PageService.IsFavoritesActive}">
+                    IsEnabled="{Binding !SidebarService.IsFavoritesActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="FavoriteOutline" />
+                            Kind="{Binding SidebarService.FavoritesIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -155,13 +155,13 @@
                 <Button
                     Classes="Sidebar"
                     Command="{Binding GoToSettingsCommand}"
-                    IsEnabled="{Binding !PageService.IsSettingsActive}">
+                    IsEnabled="{Binding !SidebarService.IsSettingsActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="SettingsOutline" />
+                            Kind="{Binding SidebarService.SettingsIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -172,13 +172,13 @@
                 <Button
                     Classes="Sidebar"
                     Command="{Binding GoToAboutCommand}"
-                    IsEnabled="{Binding !PageService.IsAboutActive}">
+                    IsEnabled="{Binding !SidebarService.IsAboutActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="AboutOutline" />
+                            Kind="{Binding SidebarService.AboutIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"

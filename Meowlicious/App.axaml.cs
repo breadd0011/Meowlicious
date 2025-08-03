@@ -2,8 +2,6 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Meowlicious.Data;
 using Meowlicious.Services;
 using Meowlicious.Services.FilePicker;
@@ -15,6 +13,8 @@ using Meowlicious.Services.Theme;
 using Meowlicious.Utils;
 using Meowlicious.ViewModels;
 using Meowlicious.Views;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Globalization;
 using System.IO;
@@ -66,7 +66,7 @@ namespace Meowlicious
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<ISearchService, SearchService>();
             services.AddSingleton<IFileService, FileService>();
-            services.AddSingleton<IPageService, PageService>();
+            services.AddSingleton<ISidebarService, SidebarService>();
             services.AddSingleton<IThemeService, ThemeService>();
 
             services.AddSingleton<Func<Type, ViewModelBase>>(serviceProvider => viewModelType => (ViewModelBase)serviceProvider.GetRequiredService(viewModelType));

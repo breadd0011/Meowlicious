@@ -46,7 +46,7 @@
                 <SolidColorBrush Opacity="0.2" Color="{DynamicResource TertiaryColor}" />
             </Setter.Value>
         </Setter>
-		<Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="CornerRadius" Value="15" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
@@ -55,7 +55,6 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource TertiaryColor}" />
     </Style>
-
 
     <Style Selector="Button.Add">
         <Setter Property="Background" Value="{DynamicResource TertiaryColor}" />
