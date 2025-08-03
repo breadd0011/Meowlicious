@@ -117,10 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutButton" xml:space="preserve">
-    <value>Névjegy</value>
-  </data>
-  <data name="AboutHeader" xml:space="preserve">
+  <data name="But" xml:space="preserve">
     <value>Névjegy</value>
   </data>
   <data name="AddIngredientButton" xml:space="preserve">
@@ -175,13 +172,13 @@
     <value>Nem</value>
   </data>
   <data name="NoFavoritesMessage" xml:space="preserve">
-    <value>Neked még nincsen kedvenced :(</value>
+    <value>Még nincsen kedvenced :(</value>
   </data>
   <data name="NoRecipesMessage" xml:space="preserve">
-    <value>Neked még nincsen recepted :(</value>
+    <value>Még nincsen recepted :(</value>
   </data>
   <data name="NoSearchMessage" xml:space="preserve">
-    <value>Neked nincs recepted ezzel a névvel :(</value>
+    <value>Nincs recepted ezzel a névvel :(</value>
   </data>
   <data name="QuantityWatermark" xml:space="preserve">
     <value>Mennyiség</value>
@@ -191,6 +188,9 @@
   </data>
   <data name="RemoveButton" xml:space="preserve">
     <value>Eltávolítás</value>
+  </data>
+  <data name="RemoveFavoriteButton" xml:space="preserve">
+    <value>Eltávolítás a kedvencek közül</value>
   </data>
   <data name="RequiredTimeWatermark" xml:space="preserve">
     <value>Szükséges Idő</value>
@@ -210,6 +210,9 @@
   <data name="SettingsHeader" xml:space="preserve">
     <value>Beállítások</value>
   </data>
+  <data name="ThemeOption" xml:space="preserve">
+    <value>Téma</value>
+  </data>
   <data name="UnitWatermark" xml:space="preserve">
     <value>Egység</value>
   </data>
@@ -218,5 +221,14 @@
   </data>
   <data name="YesButton" xml:space="preserve">
     <value>Igen</value>
+  </data>
+  <data name="NoFavoritesSearchMessage" xml:space="preserve">
+    <value>Nincs kedvenced ezzel a névvel :(</value>
+  </data>
+  <data name="AboutHeader" xml:space="preserve">
+    <value>Névjegy</value>
+  </data>
+  <data name="AboutButton" xml:space="preserve">
+    <value>Névjegy</value>
   </data>
 </root>

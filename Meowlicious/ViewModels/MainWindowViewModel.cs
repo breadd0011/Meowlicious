@@ -15,7 +15,7 @@ namespace Meowlicious.ViewModels
     {
         [ObservableProperty] private INavigationService _navService;
         [ObservableProperty] private ISearchService _searchService;
-        [ObservableProperty] private IPageService _pageService;
+        [ObservableProperty] private ISidebarService _SidebarService;
 
         [ObservableProperty] private bool _isUpdateAvailable = false;
         public ILocalizationService L { get; }
@@ -24,12 +24,12 @@ namespace Meowlicious.ViewModels
             INavigationService navService,
             ILocalizationService localizationService,
             ISearchService searchService,
-            IPageService pageService)
+            ISidebarService SidebarService)
         {
             _navService = navService;
             L = localizationService;
             _searchService = searchService;
-            _pageService = pageService;
+            _SidebarService = SidebarService;
 
             GoToExplorer();
 
@@ -75,35 +75,35 @@ namespace Meowlicious.ViewModels
         private void GoToExplorer()
         {
             NavService.NavigateTo<RecipeExplorerViewModel>();
-            PageService.CurrentPageType = typeof(RecipeExplorerViewModel);
+            SidebarService.CurrentPageType = typeof(RecipeExplorerViewModel);
         }
 
         [RelayCommand]
         private void GoToFavorites()
         {
             NavService.NavigateTo<FavoritesViewModel>();
-            PageService.CurrentPageType = typeof(FavoritesViewModel);
+            SidebarService.CurrentPageType = typeof(FavoritesViewModel);
         }
 
         [RelayCommand]
         private void GoToSettings()
         {
             NavService.NavigateTo<SettingsViewModel>();
-            PageService.CurrentPageType = typeof(SettingsViewModel);
+            SidebarService.CurrentPageType = typeof(SettingsViewModel);
         }
 
         [RelayCommand]
         private void GoToAbout()
         {
             NavService.NavigateTo<AboutViewModel>();
-            PageService.CurrentPageType = typeof(AboutViewModel);
+            SidebarService.CurrentPageType = typeof(AboutViewModel);
         }
 
         [RelayCommand]
         private void AddRecipe()
         {
             NavService.NavigateTo<AddRecipeViewModel>();
-            PageService.CurrentPageType = typeof(AddRecipeViewModel);
+            SidebarService.CurrentPageType = typeof(AddRecipeViewModel);
         }
 
         [RelayCommand]

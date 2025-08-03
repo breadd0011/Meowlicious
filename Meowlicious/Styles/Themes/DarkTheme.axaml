@@ -22,7 +22,7 @@
     <Color x:Key="PrimaryColor">#313130</Color>
     <Color x:Key="BackgroundColor">#292926</Color>
     <Color x:Key="TextColor">#fffefc</Color>
-    <Color x:Key="TertiaryColor">#EF6F57</Color>
+    <Color x:Key="TertiaryColor">#FC5139</Color>
 
     <Color x:Key="BackgroundColorShadow">#242422</Color>
 
