@@ -91,25 +91,15 @@
         </Popup>
 
 
-        <!--  Empty RecipeList Message  -->
+        <!--  Status Message  -->
         <TextBlock
             Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="38"
             Foreground="{DynamicResource PrimaryColor}"
-            IsVisible="{Binding IsNoRecipesTextVisible}"
-            Text="{Binding L[NoRecipesMessage]}" />
-
-        <!--  No Search Result Message  -->
-        <TextBlock
-            Grid.Row="1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="38"
-            Foreground="{DynamicResource PrimaryColor}"
-            IsVisible="{Binding IsNoSearchTextVisible}"
-            Text="{Binding L[NoSearchMessage]}" />
+            IsVisible="{Binding IsStatusTextVisible}"
+            Text="{Binding StatusText}" />
 
         <!--  Recipe List  -->
         <ScrollViewer
