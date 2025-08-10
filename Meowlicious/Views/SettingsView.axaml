@@ -15,6 +15,7 @@
         <StackPanel
             Margin="10"
             Orientation="Vertical">
+			
             <!--  Language Settings  -->
             <Grid ColumnDefinitions="*,*">
                 <TextBlock

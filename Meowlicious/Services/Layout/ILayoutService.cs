@@ -1,12 +1,12 @@
 ﻿using Material.Icons;
 using System;
 
-namespace Meowlicious.Services.Page
+namespace Meowlicious.Services.Layout
 {
-    public interface ISidebarService
+    public interface ILayoutService
     {
         Type? CurrentPageType { get; set; }
-
+        string? HeaderText { get; set; }
         bool IsExplorerActive { get; }
         bool IsFavoritesActive { get; }
         bool IsAddRecipeActive { get; }

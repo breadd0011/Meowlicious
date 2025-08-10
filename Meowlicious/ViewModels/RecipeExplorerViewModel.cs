@@ -4,9 +4,9 @@ using Meowlicious.Enums;
 using Meowlicious.Models;
 using Meowlicious.Services;
 using Meowlicious.Services.FilePicker;
+using Meowlicious.Services.Layout;
 using Meowlicious.Services.Localization;
 using Meowlicious.Services.Navigation;
-using Meowlicious.Services.Page;
 using Meowlicious.Services.Search;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace Meowlicious.ViewModels
     public partial class RecipeExplorerViewModel : ViewModelBase
     {
         [ObservableProperty] private INavigationService _navService;
-        [ObservableProperty] private ISidebarService _SidebarService;
+        [ObservableProperty] private ILayoutService _layoutService;
 
         [ObservableProperty] private ObservableCollection<Recipe> _recipes;
         [ObservableProperty] private ObservableCollection<Recipe> _filteredRecipes;
@@ -42,7 +42,7 @@ namespace Meowlicious.ViewModels
 
         public RecipeExplorerViewModel(
             INavigationService navService,
-            ISidebarService SidebarService,
+            ILayoutService layoutService,
             FavoritesViewModel favoritesViewModel,
             IRecipeDataService recipeDataService,
             ILocalizationService localizationService,
@@ -50,7 +50,7 @@ namespace Meowlicious.ViewModels
             IFileService fileService)
         {
             _navService = navService;
-            _SidebarService = SidebarService;
+            _layoutService = layoutService;
             _favoritesViewModel = favoritesViewModel;
             _recipeDataService = recipeDataService;
             _searchService = searchService;
@@ -125,7 +125,8 @@ namespace Meowlicious.ViewModels
             if (recipe != null)
             {
                 NavService.NavigateTo(new OpenedRecipeViewModel(recipe, L));
-                SidebarService.CurrentPageType = typeof(OpenedRecipeViewModel);
+                LayoutService.HeaderText = recipe.Name;
+                LayoutService.CurrentPageType = typeof(OpenedRecipeViewModel);
             }
         }
 
@@ -186,8 +187,9 @@ namespace Meowlicious.ViewModels
         {
             if (recipe != null)
             {
-                NavService.NavigateTo(new AddRecipeViewModel(NavService, _SidebarService, _recipeDataService, L, _fileService, recipe));
-                SidebarService.CurrentPageType = typeof(OpenedRecipeViewModel);
+                NavService.NavigateTo(new AddRecipeViewModel(NavService, _layoutService, _recipeDataService, L, _fileService, recipe));
+                LayoutService.HeaderText = L["EditRecipeHeader"];
+                LayoutService.CurrentPageType = typeof(OpenedRecipeViewModel);
             }
         }
     }

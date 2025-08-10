@@ -4,9 +4,9 @@ using Meowlicious.Enums;
 using Meowlicious.Models;
 using Meowlicious.Services;
 using Meowlicious.Services.FilePicker;
+using Meowlicious.Services.Layout;
 using Meowlicious.Services.Localization;
 using Meowlicious.Services.Navigation;
-using Meowlicious.Services.Page;
 using Meowlicious.Services.Search;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace Meowlicious.ViewModels
     public partial class FavoritesViewModel : ViewModelBase
     {
         [ObservableProperty] private INavigationService _navService;
-        [ObservableProperty] private ISidebarService _SidebarService;
+        [ObservableProperty] private ILayoutService _layoutService;
 
         [ObservableProperty] private ObservableCollection<Recipe> _recipes;
         [ObservableProperty] private ObservableCollection<Recipe> _filteredRecipes;
@@ -39,14 +39,14 @@ namespace Meowlicious.ViewModels
         public ILocalizationService L { get; }
         public FavoritesViewModel(
             INavigationService navService,
-            ISidebarService SidebarService,
+            ILayoutService layoutService,
             IRecipeDataService recipeDataService,
             ILocalizationService localizationService,
             ISearchService searchService,
             IFileService fileService)
         {
             _navService = navService;
-            _SidebarService = SidebarService;
+            _layoutService = layoutService;
             _recipeDataService = recipeDataService;
             _searchService = searchService;
             L = localizationService;
@@ -180,8 +180,9 @@ namespace Meowlicious.ViewModels
         {
             if (recipe != null)
             {
-                NavService.NavigateTo(new AddRecipeViewModel(NavService, _SidebarService, _recipeDataService, L, _fileService, recipe));
-                SidebarService.CurrentPageType = typeof(OpenedRecipeViewModel);
+                NavService.NavigateTo(new AddRecipeViewModel(NavService, _layoutService, _recipeDataService, L, _fileService, recipe));
+                LayoutService.HeaderText = L["EditRecipeHeader"];
+                LayoutService.CurrentPageType = typeof(OpenedRecipeViewModel);
             }
         }
     }

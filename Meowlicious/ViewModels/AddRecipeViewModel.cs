@@ -3,9 +3,9 @@ using CommunityToolkit.Mvvm.Input;
 using Meowlicious.Models;
 using Meowlicious.Services;
 using Meowlicious.Services.FilePicker;
+using Meowlicious.Services.Layout;
 using Meowlicious.Services.Localization;
 using Meowlicious.Services.Navigation;
-using Meowlicious.Services.Page;
 using Meowlicious.Utils;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -18,10 +18,17 @@ namespace Meowlicious.ViewModels
     public partial class AddRecipeViewModel : ViewModelBase
     {
         [ObservableProperty] private INavigationService _navService;
-        [ObservableProperty] private ISidebarService _SidebarService;
+        [ObservableProperty] private ILayoutService _layoutService;
+
         [ObservableProperty] private Recipe _recipeDraft;
         [ObservableProperty] private Ingredient _ingredientDraft;
+
         [ObservableProperty] private bool _isImgTipVisible;
+        [ObservableProperty] private bool _isIngredientStatusTextVisible;
+        [ObservableProperty] private bool _isRecipeStatusTextVisible;
+
+        [ObservableProperty] private string _ingredientStatusText;
+        [ObservableProperty] private string _recipeStatusText;
 
         private readonly IRecipeDataService _recipeDataService;
         private readonly IFileService _fileService;
@@ -31,14 +38,14 @@ namespace Meowlicious.ViewModels
 
         public AddRecipeViewModel(
             INavigationService navService,
-            ISidebarService SidebarService,
+            ILayoutService layoutService,
             IRecipeDataService recipeDataService,
             ILocalizationService localizationService,
             IFileService fileService,
             Recipe? recipe = null)
         {
             _navService = navService;
-            _SidebarService = SidebarService;
+            _layoutService = layoutService;
             _recipeDataService = recipeDataService;
             L = localizationService;
             _fileService = fileService;
@@ -76,6 +83,50 @@ namespace Meowlicious.ViewModels
             IngredientDraft = new Ingredient();
         }
 
+        private bool CanAddIngredient()
+        {
+            return !string.IsNullOrWhiteSpace(IngredientDraft.Name) &&
+                   !string.IsNullOrWhiteSpace(IngredientDraft.Unit) &&
+                   !string.IsNullOrWhiteSpace(IngredientDraft.Amount);
+        }
+
+        private string GetIngredientStatusText()
+        {
+            if (string.IsNullOrWhiteSpace(IngredientDraft.Name))
+            {
+                return L["MissingIngredientNameError"];
+            }
+            if (string.IsNullOrWhiteSpace(IngredientDraft.Unit))
+            {
+                return L["MissingUnitError"];
+            }
+            if (string.IsNullOrWhiteSpace(IngredientDraft.Amount))
+            {
+                return L["MissingAmountError"];
+            }
+
+            return string.Empty;
+        }
+
+        private bool CanAddRecipe()
+        {
+            return !string.IsNullOrWhiteSpace(RecipeDraft.Name) &&
+                   !string.IsNullOrWhiteSpace(RecipeDraft.RequiredTime);
+        }
+
+        private string GetRecipeStatusText()
+        {
+            if (string.IsNullOrWhiteSpace(RecipeDraft.Name))
+            {
+                return L["MissingRecipeNameError"];
+            }
+            if (string.IsNullOrWhiteSpace(RecipeDraft.RequiredTime))
+            {
+                return L["MissingRequiredTimeError"];
+            }
+            return string.Empty;
+        }
+
         private byte[] LoadPlaceholderImage()
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -107,6 +158,14 @@ namespace Meowlicious.ViewModels
         [RelayCommand]
         private void AddIngredient()
         {
+            if (!CanAddIngredient())
+            {
+                IngredientStatusText = GetIngredientStatusText();
+                IsIngredientStatusTextVisible = true;
+                return;
+            }
+
+            IsIngredientStatusTextVisible = false;
             RecipeDraft.Ingredients.Add(IngredientDraft);
             IngredientDraft = new();
         }
@@ -120,9 +179,11 @@ namespace Meowlicious.ViewModels
         [RelayCommand]
         private void AddRecipe()
         {
-            if (RecipeDraft.ImageBytes == null)
+            if (!CanAddRecipe())
             {
-                RecipeDraft.ImageBytes = LoadPlaceholderImage();
+                RecipeStatusText = GetRecipeStatusText();
+                IsRecipeStatusTextVisible = true;
+                return;
             }
 
             if (loadedRecipe != null)
@@ -140,15 +201,21 @@ namespace Meowlicious.ViewModels
                 _recipeDataService.AddRecipe(RecipeDraft);
             }
 
+            if (RecipeDraft.ImageBytes == null)
+            {
+                RecipeDraft.ImageBytes = LoadPlaceholderImage();
+            }
+
+            IsRecipeStatusTextVisible = false;
             NavService.NavigateTo<RecipeExplorerViewModel>();
-            SidebarService.CurrentPageType = typeof(RecipeExplorerViewModel);
+            LayoutService.CurrentPageType = typeof(RecipeExplorerViewModel);
         }
 
         [RelayCommand]
         private void CancelRecipe()
         {
             NavService.NavigateTo<RecipeExplorerViewModel>();
-            SidebarService.CurrentPageType = typeof(RecipeExplorerViewModel);
+            LayoutService.CurrentPageType = typeof(RecipeExplorerViewModel);
         }
     }
 }
