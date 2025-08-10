@@ -13,10 +13,13 @@
     x:DataType="vm:MainWindowViewModel"
     Icon="/Assets/favicon.ico">
 
-    <Grid Background="{DynamicResource PrimaryColor}" ColumnDefinitions="280,*">
+    <Grid
+        Background="{DynamicResource PrimaryColor}"
+        ColumnDefinitions="280,*"
+        RowDefinitions="80,*">
 
         <!--  SideBar  -->
-        <Grid RowDefinitions="Auto,Auto,*">
+        <Grid RowDefinitions="Auto,Auto,*" Grid.RowSpan="2">
             <Grid.Background>
                 <ImageBrush
                     Opacity="0.03"
@@ -52,7 +55,6 @@
                             Kind="Search" />
                     </TextBox.InnerLeftContent>
                 </TextBox>
-
 
                 <Separator
                     Height="1"
@@ -133,7 +135,6 @@
                     Margin="10"
                     Opacity="0.3" />
 
-
                 <Button
                     Classes="Sidebar"
                     Command="{Binding UpdateAppCommand}"
@@ -190,10 +191,32 @@
         </Grid>
 
 
-        <!--  Content  -->
-        <TransitioningContentControl
+        <!--  Header  -->
+        <Border
+            Grid.Row="0"
             Grid.Column="1"
+            Margin="0,0,0,5"
             Background="{DynamicResource BackgroundColor}"
-            Content="{Binding NavService.CurrentView}" />
+            BoxShadow="5 0 15 black">
+
+            <Grid Margin="10">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Text="{Binding HeaderText}" />
+            </Grid>
+        </Border>
+
+        <!--  Content  -->
+        <Border
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="0,0,0,0"
+            Background="Transparent"
+            BoxShadow="5 5 15 black">
+
+            <TransitioningContentControl Background="{DynamicResource BackgroundColor}" Content="{Binding NavService.CurrentView}" />
+        </Border>
     </Grid>
 </Window>

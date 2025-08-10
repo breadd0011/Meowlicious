@@ -27,25 +27,9 @@
     </UserControl.Resources>
 
     <Grid Background="{DynamicResource BackgroundColor}" Classes.IsPopupOpen="{Binding IsPopupOpen}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <!--  Header  -->
-        <Border Grid.Row="0" BoxShadow="0 0 5 black">
-            <Grid Margin="10">
-                <TextBlock
-                    VerticalAlignment="Center"
-                    FontSize="24"
-                    FontWeight="Bold"
-                    Text="{Binding L[AllRecipesHeader]}" />
-            </Grid>
-        </Border>
 
         <!--  DeletePopup  -->
         <Popup
-            Grid.Row="1"
             ClipToBounds="True"
             IsOpen="{Binding $parent[views:RecipeExplorerView].((vm:RecipeExplorerViewModel)DataContext).IsPopupOpen}"
             Placement="Center"
@@ -93,7 +77,6 @@
 
         <!--  Status Message  -->
         <TextBlock
-            Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="38"
@@ -103,7 +86,6 @@
 
         <!--  Recipe List  -->
         <ScrollViewer
-            Grid.Row="1"
             Margin="10"
             HorizontalAlignment="Center">
             <ItemsControl ItemsSource="{Binding FilteredRecipes}">

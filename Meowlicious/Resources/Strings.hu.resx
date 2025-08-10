@@ -126,10 +126,10 @@
   <data name="AddRecipeButton" xml:space="preserve">
     <value>Recept Hozzáadása</value>
   </data>
-  <data name="AddRecipeTitle" xml:space="preserve">
+  <data name="AddRecipeHeader" xml:space="preserve">
     <value>Recept Hozzáadása</value>
   </data>
-  <data name="AllRecipesHeader" xml:space="preserve">
+  <data name="ExplorerHeader" xml:space="preserve">
     <value>Receptek</value>
   </data>
   <data name="CancelButton" xml:space="preserve">
