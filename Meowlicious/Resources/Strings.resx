@@ -232,4 +232,22 @@
     <value>About</value>
     <comment>Névjegy</comment>
   </data>
+  <data name="MissingIngredientNameError" xml:space="preserve">
+    <value>Ingredient field cannot be blank</value>
+  </data>
+  <data name="MissingUnitError" xml:space="preserve">
+    <value>Unit field cannot be blank</value>
+  </data>
+  <data name="MissingAmountError" xml:space="preserve">
+    <value>Amount field cannot be blank</value>
+  </data>
+  <data name="EditRecipeHeader" xml:space="preserve">
+    <value>Edit Recipe</value>
+  </data>
+  <data name="MissingRecipeNameError" xml:space="preserve">
+    <value>Recipe name cannot be blank</value>
+  </data>
+  <data name="MissingRequiredTimeError" xml:space="preserve">
+    <value>Required time field cannot be blank</value>
+  </data>
 </root>

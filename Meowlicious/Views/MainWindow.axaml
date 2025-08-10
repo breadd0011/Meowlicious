@@ -19,7 +19,7 @@
         RowDefinitions="80,*">
 
         <!--  SideBar  -->
-        <Grid RowDefinitions="Auto,Auto,*" Grid.RowSpan="2">
+        <Grid Grid.RowSpan="2" RowDefinitions="Auto,Auto,*">
             <Grid.Background>
                 <ImageBrush
                     Opacity="0.03"
@@ -66,13 +66,13 @@
                     Classes="Sidebar"
                     Command="{Binding AddRecipeCommand}"
                     CornerRadius="5"
-                    IsEnabled="{Binding !SidebarService.IsAddRecipeActive}">
+                    IsEnabled="{Binding !LayoutService.IsAddRecipeActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="{Binding SidebarService.AddIcon}" />
+                            Kind="{Binding LayoutService.AddIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -92,13 +92,13 @@
                 <Button
                     Classes="Sidebar"
                     Command="{Binding GoToExplorerCommand}"
-                    IsEnabled="{Binding !SidebarService.IsExplorerActive}">
+                    IsEnabled="{Binding !LayoutService.IsExplorerActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="{Binding SidebarService.ExplorerIcon}" />
+                            Kind="{Binding LayoutService.ExplorerIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -109,13 +109,13 @@
                 <Button
                     Classes="Sidebar"
                     Command="{Binding GoToFavoritesCommand}"
-                    IsEnabled="{Binding !SidebarService.IsFavoritesActive}">
+                    IsEnabled="{Binding !LayoutService.IsFavoritesActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="{Binding SidebarService.FavoritesIcon}" />
+                            Kind="{Binding LayoutService.FavoritesIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -156,13 +156,13 @@
                 <Button
                     Classes="Sidebar"
                     Command="{Binding GoToSettingsCommand}"
-                    IsEnabled="{Binding !SidebarService.IsSettingsActive}">
+                    IsEnabled="{Binding !LayoutService.IsSettingsActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="{Binding SidebarService.SettingsIcon}" />
+                            Kind="{Binding LayoutService.SettingsIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -173,13 +173,13 @@
                 <Button
                     Classes="Sidebar"
                     Command="{Binding GoToAboutCommand}"
-                    IsEnabled="{Binding !SidebarService.IsAboutActive}">
+                    IsEnabled="{Binding !LayoutService.IsAboutActive}">
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <material:MaterialIcon
                             Width="25"
                             Height="25"
                             VerticalAlignment="Center"
-                            Kind="{Binding SidebarService.AboutIcon}" />
+                            Kind="{Binding LayoutService.AboutIcon}" />
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -204,7 +204,7 @@
                     VerticalAlignment="Center"
                     FontSize="24"
                     FontWeight="Bold"
-                    Text="{Binding HeaderText}" />
+                    Text="{Binding LayoutService.HeaderText}" />
             </Grid>
         </Border>
 

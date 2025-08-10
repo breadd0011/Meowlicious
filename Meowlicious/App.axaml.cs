@@ -5,9 +5,9 @@ using Avalonia.Markup.Xaml;
 using Meowlicious.Data;
 using Meowlicious.Services;
 using Meowlicious.Services.FilePicker;
+using Meowlicious.Services.Layout;
 using Meowlicious.Services.Localization;
 using Meowlicious.Services.Navigation;
-using Meowlicious.Services.Page;
 using Meowlicious.Services.Search;
 using Meowlicious.Services.Theme;
 using Meowlicious.Utils;
@@ -66,7 +66,7 @@ namespace Meowlicious
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<ISearchService, SearchService>();
             services.AddSingleton<IFileService, FileService>();
-            services.AddSingleton<ISidebarService, SidebarService>();
+            services.AddSingleton<ILayoutService, LayoutService>();
             services.AddSingleton<IThemeService, ThemeService>();
 
             services.AddSingleton<Func<Type, ViewModelBase>>(serviceProvider => viewModelType => (ViewModelBase)serviceProvider.GetRequiredService(viewModelType));

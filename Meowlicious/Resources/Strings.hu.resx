@@ -231,4 +231,22 @@
   <data name="AboutButton" xml:space="preserve">
     <value>Névjegy</value>
   </data>
+  <data name="MissingIngredientNameError" xml:space="preserve">
+    <value>A hozzávaló mező nem lehet üres</value>
+  </data>
+  <data name="MissingUnitError" xml:space="preserve">
+    <value>Az egység mező nem lehet üres</value>
+  </data>
+  <data name="MissingAmountError" xml:space="preserve">
+    <value>A mennyiség mező nem lehet üres</value>
+  </data>
+  <data name="EditRecipeHeader" xml:space="preserve">
+    <value>Recept Szerkesztése</value>
+  </data>
+  <data name="MissingRecipeNameError" xml:space="preserve">
+    <value>A recept név mező nem lehet üres</value>
+  </data>
+  <data name="MissingRequiredTimeError" xml:space="preserve">
+    <value>A szükséges idő mező nem lehet üres</value>
+  </data>
 </root>

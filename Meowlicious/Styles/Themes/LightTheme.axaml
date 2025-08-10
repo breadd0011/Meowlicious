@@ -6,8 +6,8 @@
     <Color x:Key="TertiaryColor">#FC5139</Color>
 
     <Color x:Key="BackgroundColorShadow">#F5F5F5</Color>
-    <Color x:Key="ErrorColor">#F9454A</Color>
-    <Color x:Key="OkColor">#E0B6F4</Color>
+    <Color x:Key="ErrorColor">#F0473E</Color>
+    <Color x:Key="OkColor">#7D5FFF</Color>
     <Color x:Key="FavoritesColor">#F3616E</Color>
 
 </ResourceDictionary>
