@@ -18,6 +18,7 @@ namespace Meowlicious.ViewModels
         [ObservableProperty] private ISidebarService _SidebarService;
 
         [ObservableProperty] private bool _isUpdateAvailable = false;
+        [ObservableProperty] private string _headerText = string.Empty;
         public ILocalizationService L { get; }
 
         public MainWindowViewModel(
@@ -76,6 +77,7 @@ namespace Meowlicious.ViewModels
         {
             NavService.NavigateTo<RecipeExplorerViewModel>();
             SidebarService.CurrentPageType = typeof(RecipeExplorerViewModel);
+            HeaderText = L["ExplorerHeader"];
         }
 
         [RelayCommand]
@@ -83,6 +85,7 @@ namespace Meowlicious.ViewModels
         {
             NavService.NavigateTo<FavoritesViewModel>();
             SidebarService.CurrentPageType = typeof(FavoritesViewModel);
+            HeaderText = L["FavoritesHeader"];
         }
 
         [RelayCommand]
@@ -90,6 +93,7 @@ namespace Meowlicious.ViewModels
         {
             NavService.NavigateTo<SettingsViewModel>();
             SidebarService.CurrentPageType = typeof(SettingsViewModel);
+            HeaderText = L["SettingsHeader"];
         }
 
         [RelayCommand]
@@ -97,6 +101,7 @@ namespace Meowlicious.ViewModels
         {
             NavService.NavigateTo<AboutViewModel>();
             SidebarService.CurrentPageType = typeof(AboutViewModel);
+            HeaderText = L["AboutHeader"];
         }
 
         [RelayCommand]
@@ -104,6 +109,7 @@ namespace Meowlicious.ViewModels
         {
             NavService.NavigateTo<AddRecipeViewModel>();
             SidebarService.CurrentPageType = typeof(AddRecipeViewModel);
+            HeaderText = L["AddRecipeHeader"];
         }
 
         [RelayCommand]

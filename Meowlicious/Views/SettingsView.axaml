@@ -12,24 +12,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{DynamicResource BackgroundColor}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <!--  Header  -->
-        <Border Grid.Row="0" BoxShadow="0 0 5 black">
-            <Grid Margin="10">
-                <TextBlock
-                    VerticalAlignment="Center"
-                    FontSize="24"
-                    FontWeight="Bold"
-                    Text="{Binding L[SettingsHeader]}" />
-            </Grid>
-        </Border>
-
         <StackPanel
-            Grid.Row="1"
             Margin="10"
             Orientation="Vertical">
             <!--  Language Settings  -->

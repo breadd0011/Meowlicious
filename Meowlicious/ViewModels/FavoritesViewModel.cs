@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Meowlicious.Enums;
 using Meowlicious.Models;
 using Meowlicious.Services;
 using Meowlicious.Services.FilePicker;
@@ -24,8 +25,11 @@ namespace Meowlicious.ViewModels
         [ObservableProperty] private ObservableCollection<Recipe> _filteredRecipes;
 
         [ObservableProperty] private bool _isPopupOpen;
-        [ObservableProperty] private bool _isNoRecipesTextVisible;
-        [ObservableProperty] private bool _isNoSearchTextVisible;
+        [ObservableProperty] private bool _isStatusTextVisible;
+
+        [ObservableProperty] private string _statusText;
+
+        [ObservableProperty] private RecipeExplorerState _currentState;
 
         [ObservableProperty] private Recipe _selectedRecipe;
 
@@ -62,8 +66,22 @@ namespace Meowlicious.ViewModels
             var filtered = ApplySearchFilter(Recipes, _searchService.SearchText?.Trim());
             SyncCollections(FilteredRecipes, filtered);
 
-            IsNoSearchTextVisible = FilteredRecipes.Count == 0 && Recipes.Count != 0;
-            IsNoRecipesTextVisible = Recipes.Count == 0;
+            if (Recipes.Count == 0)
+            {
+                CurrentState = RecipeExplorerState.NoRecipes;
+                StatusText = L["NoFavoritesMessage"];
+            }
+            else if (FilteredRecipes.Count == 0 && !string.IsNullOrEmpty(_searchService.SearchText))
+            {
+                CurrentState = RecipeExplorerState.NoSearchResults;
+                StatusText = L["NoFavoritesSearchMessage"];
+            }
+            else
+            {
+                CurrentState = RecipeExplorerState.HasRecipes;
+            }
+
+            IsStatusTextVisible = CurrentState != RecipeExplorerState.HasRecipes;
         }
 
         private void SyncCollections(ObservableCollection<Recipe> target, IEnumerable<Recipe> source)
