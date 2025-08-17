@@ -52,15 +52,6 @@
                         FontSize="24"
                         FontWeight="Bold"
                         Text="{Binding CurrentRecipe.Name}" />
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="10,0,0,5"
-                        FontSize="18"
-                        MaxLines="3"
-                        Opacity="0.8"
-                        Text="{Binding CurrentRecipe.Description}"
-                        TextWrapping="Wrap" />
-
                     <StackPanel
                         Grid.Row="2"
                         Margin="10,0,0,0"

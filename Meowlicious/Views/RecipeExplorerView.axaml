@@ -85,9 +85,7 @@
             Text="{Binding StatusText}" />
 
         <!--  Recipe List  -->
-        <ScrollViewer
-            Margin="10"
-            HorizontalAlignment="Center">
+        <ScrollViewer Margin="10" HorizontalAlignment="Center">
             <ItemsControl ItemsSource="{Binding FilteredRecipes}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -156,18 +154,6 @@
                                                 Text="{Binding Name}"
                                                 TextTrimming="WordEllipsis"
                                                 TextWrapping="WrapWithOverflow" />
-
-                                            <TextBlock
-                                                FontSize="16"
-                                                MaxLines="2"
-                                                Text="{Binding Description}"
-                                                TextTrimming="WordEllipsis"
-                                                TextWrapping="Wrap">
-
-                                                <TextBlock.Foreground>
-                                                    <SolidColorBrush Opacity="0.8" Color="White" />
-                                                </TextBlock.Foreground>
-                                            </TextBlock>
                                         </StackPanel>
 
                                         <material:MaterialIcon
