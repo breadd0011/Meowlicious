@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Velopack;
+using Velopack.Sources;
 
 namespace Meowlicious.Utils
 {
     public class AutoUpdater
     {
-        public static UpdateManager UpdateManager = new(Constants.GitHubRepoUrl);
+        public static UpdateManager UpdateManager = new UpdateManager(new GithubSource(Constants.GitHubRepoUrl, null, false));
         public static UpdateInfo? NewVersion;
         public static bool UpdateAvailable => NewVersion != null;
 
