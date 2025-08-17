@@ -64,6 +64,8 @@ namespace Meowlicious.ViewModels
                     Name = recipe.Name,
                     Description = recipe.Description,
                     RequiredTime = recipe.RequiredTime,
+                    IsFavorite = recipe.IsFavorite,
+                    Making = recipe.Making,
                     ImageBytes = recipe.ImageBytes?.ToArray(),
                     Ingredients = new ObservableCollection<Ingredient>(
                         recipe.Ingredients.Select(i => new Ingredient

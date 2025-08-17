@@ -21,7 +21,8 @@ public partial class AddRecipeView : UserControl
 
         if (!e.KeyModifiers.HasFlag(KeyModifiers.Shift) &&
             ((e.Key >= Key.D0 && e.Key <= Key.D9) ||
-             (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)))
+             (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) ||
+             e.Key == Key.Decimal || e.Key == Key.OemPeriod || e.Key == Key.OemComma))
         {
             return;
         }
